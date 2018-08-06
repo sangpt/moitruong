@@ -1,1 +1,99 @@
-<h1>Hello world</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <form>
+        <h2 class="stitle" style="margin:6px 0">
+          <i class="fa fa-navicon"></i>
+          Chọn điểm đo</h2>
+        <select name="site_id" class="form-control chosen-select" onchange="this.form.submit()">
+          <option value="1">Hoàn Kiếm</option>
+          <option value="7">Thành Công</option>
+          <option value="8">Tân Mai</option>
+          <option value="9">Kim Liên</option>
+          <option value="10">Phạm Văn Đồng</option>
+          <option value="11">Tây Mỗ</option>
+          <option value="12">Mỹ Đình</option>
+          <option value="13">Hàng Đậu</option>
+          <option value="14" selected="">Chi cục bảo vệ môi trường</option>
+          <option value="15">Minh Khai - Bắc Từ Liêm</option>
+        </select>
+      </form>
+      <h4>Số liệu ngày 05-08-2018</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <span class="dailyAQI" id="dailyAQISpan" data-aqi="50" style="color: rgb(34, 34, 34); background-color: rgb(0, 176, 240);">AQI 50</span>
+        </div>
+        <div class="col-md-6">
+          <span class="indicatorAQI">
+            <a href="/nong-do/?site_id=14">Nồng độ</a>
+          </span>
+        </div>
+      </div>
+      <h4>Chỉ số AQI chi tiết theo thành phần không khí</h4>
+      <div class="aqiContainer">
+        <h1>Biểu đồ ở đây</h1>
+        <div id="indicatorAqiPM2.5" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorAqiPM10" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorAqiNO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorAqiSO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorAqiCO" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorAqiO3" class="indicatorAqi" style="display: none;"></div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div id="map-container">
+        <!-- Map -->
+        <div id="map-canvas" style="position: relative; overflow: hidden;"></div>
+        <div class="aqi_indexs hidden-xs">
+          <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0">AQI - Các chỉ số mức độ an toàn của không khí</label>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="level" style="background-color: #2196F3">____</td>
+                <td class="level" style="background-color: #FFEB3B">____</td>
+                <td class="level" style="background-color: #FF5722">____</td>
+                <td class="level" style="background-color: #F44336">____</td>
+                <td class="level" style="background-color: #795548">____</td>
+              </tr>
+              <tr>
+                <td class="leveltext">0 - TỐT</td>
+                <td class="leveltext">50 - TRUNG BÌNH</td>
+                <td class="leveltext">100 - KÉM</td>
+                <td class="leveltext">200 - XẤU</td>
+                <td class="leveltext">300 - NGUY HẠI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="aqi_indexs free_aqi_indexs visible-xs">
+        <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0">AQI - Các chỉ số mức độ an toàn của không khí</label>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="level" style="background-color: #2196F3">____</td>
+              <td class="level" style="background-color: #FFEB3B">____</td>
+              <td class="level" style="background-color: #FF5722">____</td>
+              <td class="level" style="background-color: #F44336">____</td>
+              <td class="level" style="background-color: #795548">____</td>
+            </tr>
+            <tr>
+              <td class="leveltext">0 - TỐT</td>
+              <td class="leveltext">50 - TRUNG BÌNH</td>
+              <td class="leveltext">100 - KÉM</td>
+              <td class="leveltext">200 - XẤU</td>
+              <td class="leveltext">300 - NGUY HẠI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="aqi_desc">
+        <h2 class="stitle">
+          <i class="fa fa-navicon"></i>
+          Bảng quy đổi giá trị AQI
+        </h2>
+        <%= render "table_aqi" %>
+      </div>
+    </div>
+  </div>
+</div>
