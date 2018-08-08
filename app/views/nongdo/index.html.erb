@@ -30,7 +30,9 @@
       <h4>Số liệu ngày <%= @today["time"] %></h4>
       <div class="row">
         <div class="col-md-6">
-          <span class="dailyAQI" id="dailyAQISpan" data-aqi="<%= @today["value"] %>" style="color: rgb(34, 34, 34); background-color: rgb(0, 176, 240);">AQI <%= @today["value"] %></span>
+          <span class="dailyAQI" id="dailyAQISpan" data-aqi="<%= @today["value"] %>" style="color: rgb(34, 34, 34); background-color: rgb(0, 176, 240);">
+            <%= link_to "AQI #{@today["value"]}", root_path(site_id: params[:site_id] || 14) %>
+          </span>
         </div>
         <div class="col-md-6">
           <span class="indicatorAQI">
@@ -40,12 +42,12 @@
       </div>
       <h4>Chỉ số AQI chi tiết theo thành phần không khí</h4>
       <div class="aqiContainer">
-        <div id="indicatorAqiPM2.5" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiPM10" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiNO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiSO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiCO" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiO3" class="indicatorAqi" style="display: none;"></div>
+        <div id="indicatorStatPM2.5" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorStatPM10" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorStatNO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorStatSO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorStatCO" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+        <div id="indicatorStatO3" class="indicatorAqi" style="display: none;"></div>
       </div>
     </div>
     <div class="col-md-7">
@@ -112,8 +114,8 @@
 		var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
 
 		$(indicators).each(function(i,val){
-			loadHourlyAQI(val);
-		})
+			loadHourlyStat(val);
+		});
 		var lat = 21.02;
 		var long = 105.8;
 		initMap(12,lat,long);

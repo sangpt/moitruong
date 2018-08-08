@@ -141,15 +141,96 @@ function getIcon(aqi,hidden){
 			}
 		})
 	}
-	$(function(){
-		var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
 
-		$(indicators).each(function(i,val){
-			loadHourlyAQI(val);
-		})
-		var lat = 21.02;
-		var long = 105.8;
-		initMap(12,lat,long);
+	function loadHourlyStat(indicator){
+			$.ajax({
+				url:'/api/daily_stats/?indicator=' + indicator + '&site_id='+site_id,
+				success:function(response){
+					if(response.length == 0){
+						$("#indicatorStat" + indicator).hide();
+						return;
+					}
+					__chart2 = AmCharts.makeChart("indicatorStat" + indicator, {
+						"type": "serial",
+						"categoryField": "time",
+						"dataDateFormat": "YYYY-MM-DD HH",
+						"startDuration": 1,
+						"categoryAxis": {
+							"labelRotation": 15,
+							//"minPeriod" : "HH",
+						},
+						"chartCursor": {
+							"enabled": true
+						},
+						"chartScrollbar": {
+							"enabled": true
+						},
+						"trendLines": [],
+						"graphs": [
+							{
+					        "id": "g" + indicator,
+					        "balloon":{
+					          "drop":true,
+					          "adjustBorderColor":false,
+					          "color":"#ffffff"
+					        },
+					        "bullet": "round",
+					        "bulletBorderAlpha": 1,
+					        "bulletColor": "#FFFFFF",
+					        "bulletSize": 1,
+					        "hideBulletsCount": 50,
+					        "lineThickness": 2,
+					        "title": "red line",
+					        "useLineColorForBulletBorder": true,
+					        "valueField": "value",
+					        "balloonText": "<span style='font-size:12px;'>[[value]]</span>"
+					    }
+						],
+						"guides": [],
+						"valueAxes": [
+							{
+								"title": `Nồng độ ${indicator}`
+							}
+						],
+						"allLabels": [],
+						"balloon": {},
+						/*"titles": [
+							{
+								"id": "Title-1",
+								"size": 15,
+								"text": "Chỉ số "+indicator
+							}
+						],*/
 
-// 		updateAQIColor();
-	})
+						"dataProvider": response
+					});
+
+					//__chart2.addListener("rendered", zoomIndicatorChart);
+
+					//zoomIndicatorChart();
+				}
+			})
+		}
+
+		function updateAQIColor(){
+	var value = parseInt($('#dailyAQISpan').attr('data-aqi'));
+	$('#dailyAQISpan').css('color','#222');
+	if(value > 300){
+		$('#dailyAQISpan').css('background-color','brown');
+	}
+	else if(value > 200){
+		$('#dailyAQISpan').css('background-color','red');
+	}
+	else if(value > 100){
+		$('#dailyAQISpan').css('background-color','orange');
+	}
+	else if(value > 50){
+		$('#dailyAQISpan').css('background-color','yellow');
+	}
+	else if(value >= 0){
+		$('#dailyAQISpan').css('background-color','#00b0f0');
+	}
+	else{
+		$('#dailyAQISpan').css('background-color','#efefef');
+	}
+}
