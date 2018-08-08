@@ -31,7 +31,7 @@ function getIcon(aqi,hidden){
 		return icon_green;
 	return icon_grey;
 };
-	
+
 	function initMap(zoom,lat,long) {
 	__map = new google.maps.Map(document.getElementById('map-canvas'), {
 		center: {lat: lat, lng: long},
@@ -47,7 +47,7 @@ function getIcon(aqi,hidden){
 				});
 				__infoWindows.push(infowindow);
 				var position = new google.maps.LatLng(parseFloat(response[i].latitude),parseFloat(response[i].longtitude));
-				
+
 				var marker = new google.maps.Marker({
 								position: position,
 								map: __map,
@@ -81,7 +81,7 @@ function getIcon(aqi,hidden){
 	})
 };
 
-	var site_id = 14;
+	// var site_id = 14;
 	function loadHourlyAQI(indicator){
 		$.ajax({
 			url:'/api/daily_aqis/?indicator=' + indicator + '&site_id='+site_id,
@@ -131,7 +131,7 @@ function getIcon(aqi,hidden){
 							"text": "Chỉ số "+indicator
 						}
 					],*/
-					
+
 					"dataProvider": response
 				});
 
@@ -153,4 +153,3 @@ function getIcon(aqi,hidden){
 
 // 		updateAQIColor();
 	})
-	
