@@ -20,9 +20,9 @@
     <div class="collapse navbar-collapse" id="header-navbar" style="padding-right: 20px">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
-        <li><a href="/thong-tin">Tin tức</a></li>
+        <li><%= link_to "Tin tức", posts_path %> </li>
         <li>
-          <a href="/lang/en"><i class="fa fa-language" aria-hidden="true"></i> English</a>
+          <a href="#"><i class="fa fa-language" aria-hidden="true"></i> English</a>
         </li>
         <% if admin_signed_in? %>
           <li class="dropdown">
