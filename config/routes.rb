@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     resources :daily_stats
     resources :sites
   end
+
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
 end

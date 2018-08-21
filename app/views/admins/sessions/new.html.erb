@@ -1,0 +1,43 @@
+<% content_for :body_class, :load2 %>
+
+<style>
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div class="col-md-12">
+        <div class="box loginbox">
+          <div class="header">
+            <h4>CỔNG THÔNG TIN QUAN TRẮC MÔI TRƯỜNG THỦ ĐÔ</h4>
+          </div>
+          <br>
+          <p>Vui lòng điền thông tin đăng nhập của bạn bên dưới</p>
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "m-t"}) do |f| %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email của bạn" %>
+            </div>
+
+              <strong class="notice"><%= notice %></strong>
+              <strong class="alert"><%= alert %></strong>
+
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Nhập mật khẩu" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Đăng nhập", class: "btn btn-primary block full-width m-b" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
