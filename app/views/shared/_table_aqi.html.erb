@@ -1,56 +1,56 @@
 <table class="table table-bordered">
   <tbody>
     <tr class="active">
-      <th style="width: 100px;">Giá trị AQI</th>
-      <th>Đánh giá</th>
-      <th>Ảnh hưởng sức khỏe</th>
-      <th>Màu sắc</th>
+      <th style="width: 100px;"><%= t ".aqi_value" %></th>
+      <th><%= t ".evaluate" %></th>
+      <th><%= t ".consequence" %></th>
+      <th><%= t ".color" %></th>
     </tr>
     <tr>
-      <td>0-50</td>
-      <td>TỐT</td>
-      <td>Không ảnh hưởng đến sức khỏe</td>
+      <td><%= t ".td11" %></td>
+      <td><%= t ".td12" %></td>
+      <td><%= t ".td13" %></td>
       <td>
-        <label class="color" style="background-color: blue">XANH</label>
+        <label class="color" style="background-color: blue"><%= t ".td14" %></label>
       </td>
     </tr>
     <tr>
-      <td>51-100</td>
-      <td>TRUNG BÌNH</td>
-      <td>Nhóm nhạy cảm nên hạn chế thời gian ở ngoài</td>
+      <td><%= t ".td21" %></td>
+      <td><%= t ".td22" %></td>
+      <td><%= t ".td23" %></td>
       <td>
-        <label class="color" style="background-color: yellow;color: #cdcdcd">VÀNG</label>
+        <label class="color" style="background-color: yellow;color: #cdcdcd"><%= t ".td24" %></label>
       </td>
     </tr>
     <tr>
-      <td>101-200</td>
-      <td>KÉM</td>
-      <td>Nhóm nhạy cảm cần hạn chế thời gian ở ngoài</td>
+      <td><%= t ".td31" %></td>
+      <td><%= t ".td32" %></td>
+      <td><%= t ".td33" %></td>
       <td>
-        <label class="color" style="background-color: orange">DA CAM</label>
+        <label class="color" style="background-color: orange"><%= t ".td34" %></label>
       </td>
     </tr>
     <tr>
-      <td>201-300</td>
-      <td>XẤU</td>
-      <td>Nhóm nhạy cảm tránh ra ngoài, những người khác hạn chế ở ngoài</td>
+      <td><%= t ".td41" %></td>
+      <td><%= t ".td42" %></td>
+      <td><%= t ".td43" %></td>
       <td>
-        <label class="color" style="background-color: red">ĐỎ</label>
+        <label class="color" style="background-color: red"><%= t ".td44" %></label>
       </td>
     </tr>
     <tr>
-      <td>Từ 301</td>
-      <td>NGUY HẠI</td>
-      <td>Mọi người nên ở trong nhà</td>
+      <td><%= t ".td51" %></td>
+      <td><%= t ".td52" %></td>
+      <td><%= t ".td53" %></td>
       <td>
-        <label class="color" style="background-color: brown">NÂU</label>
+        <label class="color" style="background-color: brown"><%= t ".td54" %></label>
       </td>
     </tr>
     <tr>
       <td colspan="4" class="text-center">
         <p>
           <strong>(*)</strong>
-          Nhóm nhạy cảm bao gồm: trẻ em, người già và những người mắc bệnh hô hấp</p>
+          <%= t ".ps" %></p>
       </td>
     </tr>
   </tbody>

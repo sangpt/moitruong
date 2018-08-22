@@ -12,8 +12,11 @@
           <i class="fa fa-clock-o"></i> <%= post.created_at.strftime "%R" %>
         </span>
         <span>
+          <%= link_to edit_post_path(post) do %>
+            <i class="fa fa-pencil"></i> <%= t ".edit" %>
+          <% end if admin_signed_in? %>
           <%= link_to post, method: :delete, data: {confirm: "Are you sure?"} do %>
-             <i class="fa fa-trash"></i> Delete
+            <i class="fa fa-trash"></i> <%= t ".delete" %>
           <% end if admin_signed_in? %>
         </span>
       </div>

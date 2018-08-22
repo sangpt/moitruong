@@ -11,7 +11,7 @@
       <form>
         <h2 class="stitle" style="margin:6px 0">
           <i class="fa fa-navicon"></i>
-          Chọn điểm đo</h2>
+          <%= t ".select_location" %></h2>
         <!-- <select name="site_id" class="form-control chosen-select" onchange="this.form.submit()">
           <option value="1">Hoàn Kiếm</option>
           <option value="7">Thành Công</option>
@@ -27,18 +27,18 @@
         <%= select_tag :site_id, options_for_select(Location.pluck(:name, :site_id), params[:site_id] || 14),
           class: "form-control chosen-select", onchange: "this.form.submit()" %>
       </form>
-      <h4>Số liệu ngày <%= @today["time"] %></h4>
+      <h4><%= t ".data_on" %> <%= @today["time"] %></h4>
       <div class="row">
         <div class="col-md-6">
           <span class="dailyAQI" id="dailyAQISpan" data-aqi="<%= @today["value"] %>" style="color: rgb(34, 34, 34); background-color: rgb(0, 176, 240);">AQI <%= @today["value"] %></span>
         </div>
         <div class="col-md-6">
           <span class="indicatorAQI">
-            <a href="/nongdo/?site_id=<%= params[:site_id] || 14 %>">Nồng độ</a>
+            <a href="/nongdo/?site_id=<%= params[:site_id] || 14 %>"><%= t ".nong_do" %></a>
           </span>
         </div>
       </div>
-      <h4>Chỉ số AQI chi tiết theo thành phần không khí</h4>
+      <h4><%= t ".aqi_instruction" %></h4>
       <div class="aqiContainer">
         <div id="indicatorAqiPM2.5" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
         <div id="indicatorAqiPM10" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
@@ -53,7 +53,7 @@
         <!-- Map -->
         <div id="map-canvas" style="position: relative; overflow: hidden;"></div>
         <div class="aqi_indexs hidden-xs">
-          <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0">AQI - Các chỉ số mức độ an toàn của không khí</label>
+          <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0"><%= t ".aqi_map_instruction" %></label>
           <table class="table">
             <tbody>
               <tr>
@@ -64,18 +64,18 @@
                 <td class="level" style="background-color: #795548">____</td>
               </tr>
               <tr>
-                <td class="leveltext">0 - TỐT</td>
-                <td class="leveltext">50 - TRUNG BÌNH</td>
-                <td class="leveltext">100 - KÉM</td>
-                <td class="leveltext">200 - XẤU</td>
-                <td class="leveltext">300 - NGUY HẠI</td>
+                <td class="leveltext"><%= t ".aqi_map_0" %></td>
+                <td class="leveltext"><%= t ".aqi_map_50" %></td>
+                <td class="leveltext"><%= t ".aqi_map_100" %></td>
+                <td class="leveltext"><%= t ".aqi_map_200" %></td>
+                <td class="leveltext"><%= t ".aqi_map_300" %></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
       <div class="aqi_indexs free_aqi_indexs visible-xs">
-        <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0">AQI - Các chỉ số mức độ an toàn của không khí</label>
+        <label style="font-size: 10px;font-weight: bold;padding: 0;margin: 0"><%= t ".aqi_table_instruction" %></label>
         <table class="table">
           <tbody>
             <tr>
@@ -86,11 +86,11 @@
               <td class="level" style="background-color: #795548">____</td>
             </tr>
             <tr>
-              <td class="leveltext">0 - TỐT</td>
-              <td class="leveltext">50 - TRUNG BÌNH</td>
-              <td class="leveltext">100 - KÉM</td>
-              <td class="leveltext">200 - XẤU</td>
-              <td class="leveltext">300 - NGUY HẠI</td>
+              <td class="leveltext"><%= t ".aqi_map_0" %></td>
+              <td class="leveltext"><%= t ".aqi_map_50" %></td>
+              <td class="leveltext"><%= t ".aqi_map_100" %></td>
+              <td class="leveltext"><%= t ".aqi_map_200" %></td>
+              <td class="leveltext"><%= t ".aqi_map_300" %></td>
             </tr>
           </tbody>
         </table>
@@ -98,7 +98,7 @@
       <div class="aqi_desc">
         <h2 class="stitle">
           <i class="fa fa-navicon"></i>
-          Bảng quy đổi giá trị AQI
+          <%= t ".table_convert_aqi" %>
         </h2>
         <%= render "shared/table_aqi" %>
       </div>

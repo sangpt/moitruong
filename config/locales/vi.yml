@@ -1,0 +1,88 @@
+vi:
+  layouts:
+    header:
+      home: Trang chủ
+      news: Tin Tức
+      welcome: Xin chào
+      sign_out: Đăng xuất
+      map: BẢN ĐỒ
+      change_language: English
+      sign_in: Đăng nhập
+  pages:
+    index:
+      select_location: Chọn điểm đo
+      data_on: Số liệu ngày
+      aqi_instruction: Chỉ số AQI chi tiết theo thành phần không khí
+      aqi_map_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      aqi_map_0: 0 - TỐT
+      aqi_map_50: 50 - TRUNG BÌNH
+      aqi_map_100: 100 - KÉM
+      aqi_map_200: 200 - XẤU
+      aqi_map_300: 300 - NGUY HẠI
+      nong_do: Nồng độ
+      aqi_table_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      table_convert_aqi: Bảng quy đổi giá trị AQI
+  shared:
+    table_aqi:
+      aqi_value: Giá trị AQI
+      evaluate: Đánh giá
+      consequence: Ảnh hưởng sức khỏe
+      color: Màu sắc
+      td11: 0-50
+      td12: TỐT
+      td13: Không ảnh hưởng đến sức khỏe
+      td14: XANH
+      td21: 51-100
+      td22: TRUNG BÌNH
+      td23: Nhóm nhạy cảm nên hạn chế thời gian ở ngoài
+      td24: VÀNG
+      td31: 101-200
+      td32: KÉM
+      td33: Nhóm nhạy cảm cần hạn chế thời gian ở ngoài
+      td34: DA CAM
+      td41: 201-300
+      td42: Xấu
+      td43: Nhóm nhạy cảm tránh ra ngoài, những người khác hạn chế  ở ngoài
+      td44: ĐỎ
+      td51: Từ 301
+      td52: NGUY HẠI
+      td53: Mọi người nên ở trong nhà
+      td54: NÂU
+      ps: "Nhóm nhạy cảm bao gồm: trẻ em, người già và những người mắc bệnh hô hấp"
+  nongdo:
+    index:
+      select_location: Chọn điểm đo
+      data_on: Số liệu ngày
+      nong_do_instruction: Biểu đồ chi tiết thông số từng thành phần không khí
+      aqi_map_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      aqi_map_0: 0 - TỐT
+      aqi_map_50: 50 - TRUNG BÌNH
+      aqi_map_100: 100 - KÉM
+      aqi_map_200: 200 - XẤU
+      aqi_map_300: 300 - NGUY HẠI
+      nong_do: Nồng độ
+      aqi_table_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      table_convert_aqi: Bảng quy đổi giá trị AQI
+  posts:
+    index:
+      create_post: Tạo bài viết mới
+      no_posts: Không có bài viết nào!
+    form:
+      title: Tiêu đề
+      content: Nội dung
+      post: Đăng bài viết
+    post:
+      delete: Xóa
+      edit: Sửa
+    new:
+      new_post: Tạo bài viết mới
+    edit:
+      edit_post: Sửa bài viết
+  admins:
+    sessions:
+      new:
+        title: CỔNG THÔNG TIN QUAN TRẮC MÔI TRƯỜNG THỦ ĐÔ
+        instruction: Vui lòng điền thông tin đăng nhập của bạn bên dưới
+        email_placeholder: Email của bạn
+        password_placeholder: Nhập mật khẩu
+        sign_in: Đăng nhập

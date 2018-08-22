@@ -13,25 +13,26 @@
       <div class="col-md-12">
         <div class="box loginbox">
           <div class="header">
-            <h4>CỔNG THÔNG TIN QUAN TRẮC MÔI TRƯỜNG THỦ ĐÔ</h4>
+            <h4><%= t ".title" %></h4>
           </div>
           <br>
-          <p>Vui lòng điền thông tin đăng nhập của bạn bên dưới</p>
+          <p><%= t ".instruction" %></p>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "m-t"}) do |f| %>
             <div class="form-group">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email của bạn" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t(".email_placeholder") %>
             </div>
 
-              <strong class="notice"><%= notice %></strong>
+            <% if alert %>
               <strong class="alert"><%= alert %></strong>
+            <% end %>
 
             <div class="form-group">
-              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Nhập mật khẩu" %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: t(".password_placeholder") %>
             </div>
 
             <div class="actions">
-              <%= f.submit "Đăng nhập", class: "btn btn-primary block full-width m-b" %>
+              <%= f.submit t(".sign_in"), class: "btn btn-primary block full-width m-b" %>
             </div>
           <% end %>
 

@@ -30,4 +30,90 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    header:
+      home: Home
+      news: News
+      welcome: Welcome
+      sign_out: Sign Out
+      map: Map
+      change_language: Vietnamese
+      sign_in: Sign In
+  pages:
+    index:
+      select_location: Select location
+      data_on: Data on
+      aqi_instruction: AQI index by air's components
+      aqi_map_instruction: AQI - Level by colors
+      aqi_map_0: 0 - EXCELLENT
+      aqi_map_50: 50 - GOOD
+      aqi_map_100: 100 - POLLUTED
+      aqi_map_200: 200 - UNHEALTHY
+      aqi_map_300: 300 - HAZARDOUS
+      nong_do: CONCENTRATION
+      aqi_table_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      table_convert_aqi: AQI range explanation
+  shared:
+    table_aqi:
+      aqi_value: AQI value
+      evaluate: Result
+      consequence: Description
+      color: Colors
+      td11: 0-50
+      td12: EXCELLENT
+      td13: No health implications.
+      td14: BLUE
+      td21: 51-100
+      td22: GOOD
+      td23: Few hypersensitive individuals should reduce outdoor exercise.
+      td24: YELLOW
+      td31: 101-200
+      td32: POLLUTED
+      td33: Few hypersensitive individuals need reduce outdoor exercise.
+      td34: ORANGE
+      td41: 201-300
+      td42: UNHEALTHY
+      td43: Healthy people will be noticeably affected. People with breathing or heart problems will experience reduced endurance in activities. These individuals and elders should remain indoors and restrict activities.
+      td44: RED
+      td51: Từ 301
+      td52: HAZARDOUS
+      td53: Everyone shoud avoid outdoor activities
+      td54: BROWN
+      ps: "Sensitive groups include: children, the elderly and people with respiratory disease"
+  nongdo:
+    index:
+      select_location: Selection Location
+      data_on: Data on
+      nong_do_instruction: Concentration index by air's components
+      aqi_map_instruction: AQI - Level by colors
+      aqi_map_0: 0 - EXCELLENT
+      aqi_map_50: 50 - GOOD
+      aqi_map_100: 100 - POLLUTED
+      aqi_map_200: 200 - UNHEALTHY
+      aqi_map_300: 300 - HAZARDOUS
+      nong_do: CONCENTRATION
+      aqi_table_instruction: AQI - Các chỉ số mức độ an toàn của không khí
+      table_convert_aqi: AQI range explanation
+  posts:
+    index:
+      create_post: Create new post
+      no_posts: No posts!
+    form:
+      title: Title
+      content: Content
+      post: Post now
+    post:
+      delete: Delete
+      edit: Edit
+    new:
+      new_post: New Post
+    edit:
+      edit_post: Edit Post
+  admins:
+    sessions:
+      new:
+        title: HANOI AIR QUALITY MONITORING NETWORK
+        instruction: Enter your account and password to login
+        email_placeholder: Enter your email
+        password_placeholder: Enter your password
+        sign_in: Sign In
