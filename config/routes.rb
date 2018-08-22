@@ -22,7 +22,8 @@ Rails.application.routes.draw do
     end
 
     devise_for :admins, controllers: {
-      sessions: 'admins/sessions'
+      sessions: 'admins/sessions',
+      passwords: 'admins/passwords'
     }
   end
 end

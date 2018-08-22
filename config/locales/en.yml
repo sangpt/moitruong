@@ -117,3 +117,8 @@ en:
         email_placeholder: Enter your email
         password_placeholder: Enter your password
         sign_in: Sign In
+        forgot_password: Forgot password
+    passwords:
+      new:
+        title: Forgot password
+        submit: Send email
