@@ -1,4 +1,14 @@
 vi:
+  time:
+    formats:
+      default: "%D %R"
+      short: "%D %R"
+      long: "%D %R"
+  ckeditor:
+    buttons:
+      upload: Tải lên
+    confirm_delete: Bạn muốn xóa ảnh này?
+    page_title: Tải ảnh lên
   layouts:
     header:
       home: Trang chủ
