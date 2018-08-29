@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$color-theme: #3769AD;
+
 @media (min-width: 1200px){
     .container {
         width: 1180px;
@@ -10,7 +12,8 @@
     border-radius: 0;
 }
 .navbar.navbar-default{
-    background: #039BE5 !important;
+    // background: #039BE5 !important;
+    background: $color-theme !important;
 }
 .navbar .nav.navbar-nav>li>a{
     color: #fff;
@@ -23,7 +26,8 @@
     background-color: #fff;
 }
 .navbar .nav.navbar-nav>li>a:hover{
-    color: #039BE5;
+    // color: #039BE5;
+    color: $color-theme;
 }
 #content{
     margin-top: 80px;
@@ -178,7 +182,8 @@ box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
 
 #footer{
     height: 40px;
-    background: #039BE5;
+    // background: #039BE5;
+    background: $color-theme;
     text-align: center;
     font-weight: bold;
     z-index: 9999;

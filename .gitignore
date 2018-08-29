@@ -22,3 +22,4 @@
 /config/application.yml
 public/ckeditor_assets/
 public/uploads/
+config/database.yml

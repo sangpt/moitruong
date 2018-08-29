@@ -6,14 +6,14 @@ var __chart2 = null;
 var __timeCounter = 60;
 
 function getIcon(aqi,hidden){
-	var icon_grey = '/images/place_grey.png';
-	var icon_green = '/images/place_green.png';
-	var icon_yellow = '/images/place_yellow.png';
-	var icon_orange = '/images/place_orange.png';
-	var icon_red = '/images/place_red.png';
-	var icon_brown = '/images/place_brown.png';
+	var icon_grey = 'http://moitruongthudo.vn/images/place_grey.png';
+	var icon_green = 'http://moitruongthudo.vn/images/place_green.png';
+	var icon_yellow = 'http://moitruongthudo.vn/images/place_yellow.png';
+	var icon_orange = 'http://moitruongthudo.vn/images/place_orange.png';
+	var icon_red = 'http://moitruongthudo.vn/images/place_red.png';
+	var icon_brown = 'http://moitruongthudo.vn/images/place_brown.png';
 
-	var icon_tech = '/images/place_tech.png';
+	var icon_tech = 'http://moitruongthudo.vn/images/place_tech.png';
 
 	if(hidden == 1){
 		return icon_tech;
@@ -53,7 +53,7 @@ function getIcon(aqi,hidden){
 								map: __map,
 								icon:{
 									size: new google.maps.Size(44, 46),
-									// url : getIcon(response[i].aqi,response[i].hidden),
+									url : getIcon(response[i].aqi,response[i].hidden),
 									origin: new google.maps.Point(0, -6),
 								},
 								title: response[i].name,
@@ -232,5 +232,143 @@ function getIcon(aqi,hidden){
 	}
 	else{
 		$('#dailyAQISpan').css('background-color','#efefef');
+	}
+}
+
+function load(id){
+	$('#loading').show();
+	$.ajax({
+		url : "/api/view/"+id,
+		success:function(response){
+			$('#loading').hide();
+			$('#site-name').text(response.site.name);
+			$('#site-details').html(response.siteDetail);
+			$('#table-data').html(response.tableData);
+			$('#table-weather').html(response.tableWeatherData);
+			if(response.aqi >= 0){
+				$('#aqi').html("AQI " + response.aqi);
+				$('#aqi_time').html(response.aqi_time);
+			}
+			else
+				$('#aqi').html("AQI <small>Không có số liệu</small>");
+			$('#legend1').empty();
+			$('#aqi').attr("data-aqi",response.aqi);
+			$('#aqi_text').text(response.aqiText);
+
+			updateAQIColor();
+			if(__chart){
+				__chart.removeLegend();
+			}
+			__chart = AmCharts.makeChart("chartdiv", {
+				"type": "serial",
+				"theme": "light",
+				"marginRight": 40,
+				"marginLeft": 50,
+				"autoMarginOffset": 20,
+				"mouseWheelZoomEnabled":true,
+				"dataDateFormat": "YYYY-MM-DD JJ:NN:SS",
+				"valueAxes": [{
+						"id": "v1",
+						"axisAlpha": 0,
+						"position": "left",
+						"ignoreAxisWidth":true
+				}],
+				"balloon": {
+						"borderThickness": 1,
+						"shadowAlpha": 0,
+						"fontSize":11,
+						"textAlign":"left",
+				},
+				"graphs": response.graphs,
+				"chartCursor": {
+						"pan": true,
+						"valueLineEnabled": true,
+						"valueLineBalloonEnabled": true,
+						"cursorAlpha":1,
+						"cursorColor":"#258cbb",
+						"limitToGraph":"g1",
+						"valueLineAlpha":0.2,
+						"valueZoomable":true
+				},
+				"categoryField": "time",
+				"categoryAxis": {
+						"minPeriod": "mm",
+						"parseDates": true,
+						'format':'JJ:NN'
+				},
+				"legend": {
+			    	"useGraphSettings": true,
+			    	"rollOverColor":"#aaa",
+			    	"maxColumns":4,
+			    	"spacing":0,
+			    	"verticalGap":4,
+			    	"divId":"legend1",
+			    	"marginLeft":0,
+			    	"marginRight":0,
+				},
+				"dataProvider": response.data
+			});
+			__chart.addListener("rendered", zoomSiteChart);
+			zoomSiteChart();
+
+			loadIndicatorAqi(response.indicators);
+		}
+	})
+
+	loadHourlyAQI('hourlyAQIChart',id);
+	if($('#link-stats').length > 0){
+		$('#link-stats').attr('href','/thong-ke-aqi?site_id='+id);
+	}
+}
+function loadByIndicator(id){
+	$.ajax({
+			url : "/api/indicator/"+id,
+			success:function(response){
+				__chart2 = AmCharts.makeChart("chartdiv2", {
+					"type": "serial",
+					"theme": "light",
+					"marginRight": 40,
+					"marginLeft": 40,
+					"autoMarginOffset": 20,
+					"mouseWheelZoomEnabled":true,
+					"valueAxes": [{
+							"id": "v1",
+							"axisAlpha": 0,
+							"position": "left",
+							"ignoreAxisWidth":true
+					}],
+					"balloon": {
+							"borderThickness": 1,
+							"shadowAlpha": 0
+					},
+					"graphs": response.graphs,
+					"chartCursor": {
+							"pan": true,
+							"valueLineEnabled": true,
+							"valueLineBalloonEnabled": true,
+							"cursorAlpha":1,
+							"cursorColor":"#258cbb",
+							"limitToGraph":"g1",
+							"valueLineAlpha":0.2,
+							"valueZoomable":true
+					},
+					"categoryField": "time",
+					"categoryAxis": {
+							"minPeriod": "mm",
+							"parseDates": true,
+					},
+
+					"dataProvider": response.data
+				});
+
+				__chart2.addListener("rendered", zoomIndicatorChart);
+
+				zoomIndicatorChart();
+			}
+	})
+}
+function closeAllInfoWindows() {
+	for (var i=0;i<__infoWindows.length;i++) {
+		__infoWindows[i].close();
 	}
 }
