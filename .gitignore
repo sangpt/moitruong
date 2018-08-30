@@ -24,3 +24,4 @@ public/ckeditor_assets/
 public/uploads/
 public/assets/
 config/database.yml
+/config/database.yml
