@@ -3,6 +3,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.13/serial.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/amcharts/3.21.13/themes/light.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtArVuBrHkGyTkaNtNMWhAGs_wzbO_rS8"></script>
+  <script type="text/javascript">
+    var site_id = <%= params[:site_id] || 14 %>;
+    $(function(){
+      var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
+
+      $(indicators).each(function(i,val){
+        loadHourlyAQI(val);
+      })
+      var lat = 21.02;
+      var long = 105.8;
+      initMap(12,lat,long);
+
+      updateAQIColor();
+    })
+  </script>
 <% end %>
 
 <div class="container">
@@ -105,19 +120,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  var site_id = <%= params[:site_id] || 14 %>;
-  $(function(){
-		var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
-
-		$(indicators).each(function(i,val){
-			loadHourlyAQI(val);
-		})
-		var lat = 21.02;
-		var long = 105.8;
-		initMap(12,lat,long);
-
-		updateAQIColor();
-	})
-</script>

@@ -2,14 +2,11 @@
 <html>
   <head>
     <title>AIRSENSE</title>
-    <%#= favicon_link_tag "favicon.ico" %>
+    <%= render "layouts/metadata" %>
+    <%= favicon_link_tag "favicon.ico" %>
     <%= csrf_meta_tags %>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <% if content_for(:assets) %>
-      <%= yield :assets %>
-    <% end %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="<%= yield :body_class %> pace-done">
@@ -18,5 +15,9 @@
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if content_for(:assets) %>
+      <%= yield :assets %>
+    <% end %>
   </body>
 </html>
