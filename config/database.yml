@@ -13,10 +13,10 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV["IP"] %>
+  host: localhost
   port: 3306
   username: root
-  password: root
+  password: SPARCLab1
   socket: /var/run/mysqld/mysqld.sock
 
 development:

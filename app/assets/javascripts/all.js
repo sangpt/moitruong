@@ -6,14 +6,14 @@ var __chart2 = null;
 var __timeCounter = 60;
 
 function getIcon(aqi,hidden){
-	var icon_grey = 'http://moitruongthudo.vn/images/place_grey.png';
-	var icon_green = 'http://moitruongthudo.vn/images/place_green.png';
-	var icon_yellow = 'http://moitruongthudo.vn/images/place_yellow.png';
-	var icon_orange = 'http://moitruongthudo.vn/images/place_orange.png';
-	var icon_red = 'http://moitruongthudo.vn/images/place_red.png';
-	var icon_brown = 'http://moitruongthudo.vn/images/place_brown.png';
+	var icon_grey = 'http://airsense.vn/assets/place_grey.png';
+	var icon_green = 'http://airsense.vn/assets/place_green.png';
+	var icon_yellow = 'http://airsense.vn/assets/place_yellow.png';
+	var icon_orange = 'http://airsense.vn/assets/place_orange.png';
+	var icon_red = 'http://airsense.vn/assets/place_red.png';
+	var icon_brown = 'http://airsense.vn/assets/place_brown.png';
 
-	var icon_tech = 'http://moitruongthudo.vn/images/place_tech.png';
+	var icon_tech = 'http://airsense.vn/assets/place_tech.png';
 
 	if(hidden == 1){
 		return icon_tech;
@@ -43,7 +43,7 @@ function getIcon(aqi,hidden){
 		success: function(response){
 			$.each(response, function(i) {
 				var infowindow = new google.maps.InfoWindow({
-					content: response[i].info
+					content: (response[i].info).replace('public?site_id','nongdo/?site_id')
 				});
 				__infoWindows.push(infowindow);
 				var position = new google.maps.LatLng(parseFloat(response[i].latitude),parseFloat(response[i].longtitude));
