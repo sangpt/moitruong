@@ -43,7 +43,7 @@ function getIcon(aqi,hidden){
 		success: function(response){
 			$.each(response, function(i) {
 				var infowindow = new google.maps.InfoWindow({
-					content: (response[i].info).replace('public?site_id','nongdo/?site_id')
+					content: (response[i].info).replace('xxx','nongdo/?site_id')
 				});
 				__infoWindows.push(infowindow);
 				var position = new google.maps.LatLng(parseFloat(response[i].latitude),parseFloat(response[i].longtitude));

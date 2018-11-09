@@ -6,7 +6,8 @@
   <script type="text/javascript">
     var site_id = <%= params[:site_id] || 14 %>;
     $(function(){
-      var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
+      // OLD INDICATOR: var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
+      var indicators = ['PM2.5','PM10'];
 
       $(indicators).each(function(i,val){
         loadHourlyAQI(val);
@@ -39,7 +40,8 @@
           <option value="14" selected="">Chi cục bảo vệ môi trường</option>
           <option value="15">Minh Khai - Bắc Từ Liêm</option>
         </select> -->
-        <%= select_tag :site_id, options_for_select(Location.pluck(:name, :site_id), params[:site_id] || 14),
+        <%#= select_tag :site_id, options_for_select(Location.pluck(:name, :site_id), params[:site_id] || 14), class: "form-control chosen-select", onchange: "this.form.submit()" %>
+        <%= select_tag :site_id, options_for_select(@sites),
           class: "form-control chosen-select", onchange: "this.form.submit()" %>
       </form>
       <h4><%= t ".data_on" %> <%= @today["time"] %></h4>
@@ -57,10 +59,10 @@
       <div class="aqiContainer">
         <div id="indicatorAqiPM2.5" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
         <div id="indicatorAqiPM10" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiNO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
+<!--         <div id="indicatorAqiNO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
         <div id="indicatorAqiSO2" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
         <div id="indicatorAqiCO" class="indicatorAqi" style="overflow: hidden; text-align: left;"></div>
-        <div id="indicatorAqiO3" class="indicatorAqi" style="display: none;"></div>
+        <div id="indicatorAqiO3" class="indicatorAqi" style="display: none;"></div> -->
       </div>
     </div>
     <div class="col-md-7">

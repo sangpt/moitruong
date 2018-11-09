@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     }
 
     resources :public
+    resources :about
   end
 end

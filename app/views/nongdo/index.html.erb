@@ -6,7 +6,8 @@
   <script type="text/javascript">
     var site_id = <%= params[:site_id] || 14 %>;
     $(function(){
-      var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
+      // OLD INDICATOR: var indicators = ['NO2','SO2','CO','PM2.5','PM10','O3'];
+      var indicators = ['PM2.5','PM10'];
 
       $(indicators).each(function(i,val){
         loadHourlyStat(val);

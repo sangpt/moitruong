@@ -49,6 +49,7 @@ en:
       map: Map
       change_language: Vietnamese
       sign_in: Sign In
+      about: About
   pages:
     index:
       select_location: Select location

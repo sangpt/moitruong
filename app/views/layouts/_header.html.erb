@@ -25,6 +25,7 @@
           <% end %>
         </li>
         <li><%= link_to t(".news"), posts_path %> </li>
+        <li><%= link_to t(".about"), about_index_path %> </li>
         <li>
           <%= link_to locale: (%i(en vi) - [I18n.locale]).first do %>
             <i class="fa fa-language" aria-hidden="true"></i> <%= t ".change_language" %>

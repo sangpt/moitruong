@@ -1,7 +1,8 @@
 class Api::SitesController < ApplicationController
   def index
     require 'open-uri'
-    response = open("http://moitruongthudo.vn/api/site").read
+    # http://moitruongthudo.vn/api/site
+    response = open("http://hanoiair.de/realtime/api/sites").read
     render json: response
   end
 end
